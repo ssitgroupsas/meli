@@ -1,0 +1,150 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * MELIBOT by AITEC design system.
+ * Base: white + yellow. France blue only as accent details.
+ */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* Brand tokens */
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-france: var(--france);
+  --color-france-deep: var(--france-deep);
+  --color-france-foreground: var(--france-foreground);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.995 0.003 95);
+  --foreground: oklch(0.24 0.05 265);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.24 0.05 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.24 0.05 265);
+  --primary: oklch(0.92 0.17 100);
+  --primary-foreground: oklch(0.24 0.06 265);
+  --secondary: oklch(0.965 0.03 100);
+  --secondary-foreground: oklch(0.3 0.06 265);
+  --muted: oklch(0.965 0.018 100);
+  --muted-foreground: oklch(0.5 0.035 265);
+  --accent: oklch(0.95 0.05 100);
+  --accent-foreground: oklch(0.3 0.06 265);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.003 95);
+  --border: oklch(0.92 0.02 100);
+  --input: oklch(0.92 0.02 100);
+  --ring: oklch(0.55 0.16 257);
+  /* Brand */
+  --brand: oklch(0.92 0.17 100);
+  --brand-deep: oklch(0.83 0.155 85);
+  --france: oklch(0.52 0.17 257);
+  --france-deep: oklch(0.42 0.15 257);
+  --france-foreground: oklch(0.99 0.003 95);
+  --cream: oklch(0.975 0.028 100);
+  --ink: oklch(0.26 0.06 265);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+@utility pulse-dot {
+  animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@utility text-highlight {
+  background-image: linear-gradient(
+    to top,
+    var(--brand) 0.42em,
+    transparent 0.42em
+  );
+}
